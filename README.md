@@ -38,3 +38,50 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## Models and Serializers
+#### 'models.py'
+Defines the `Person` model with fields: `name`, `email`, `age`, and `password`.
+
+### 'serializers.py`
+Defines the `PersonSerializer` with custom validation.
+
+## Views
+### 'views.py'
+Defines the 'personView' function to handle different HTTP methods for CRUD operations.
+
+## URL Configuration
+### 'urls.py'
+Add the view to url
+```python
+from django.urls import path
+from .views import personView
+
+urlpatterns = [
+    path('person/', personView, name='person-view'),
+]
+```
+
+## Testing the API
+You can test the API using tools like Postman or Curl
+
+### Example Curl Commands:
+- GET request to retrive all persons:
+  ```bash
+  curl -X GET http://127.0.0.1:8000/person/
+  ```
+- POST request to create a new person:
+  ```bash
+  curl -X POST http://127.0.0.1:8000/person/ -d '{"name": "John", "email": "john@example.com", "age": 25, "password": "John@123"}' -H "Content-Type: application/json"
+  ```
+- PUT request to update a person:
+  ```bash
+  curl -X PUT http://127.0.0.1:8000/person/ -d '{"id": 1, "name": "John", "email": "john@example.com", "age": 26, "password": "John@123"}' -H "Content-Type: application/json"
+  ```
+- PATCH request to partially update a person:
+  ```bash
+  curl -X PATCH http://127.0.0.1:8000/person/ -d '{"id": 1, "age": 27}' -H "Content-Type: application/json"
+  ```
+- DELETE request to delete a person:
+  ```bash
+  curl -X DELETE http://127.0.0.1:8000/person/ -d '{"id": 1}' -H "Content-Type: application/json"
+  ```
