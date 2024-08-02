@@ -63,15 +63,15 @@ Defines the 'personView' function to handle different HTTP methods for CRUD oper
         path('api/',include('api.urls')),
     ]
   ```
-Add the view to app/urls.py
-```python
-from django.urls import path
-from .views import personView
-
-urlpatterns = [
-    path('person/', personView, name='person-view'),
-]
-```
+- Add the view to app/urls.py
+  ```python
+  from django.urls import path
+  from .views import personView
+  
+  urlpatterns = [
+      path('person/', personView, name='person-view'),
+  ]
+  ```
 
 
 ## Testing the API
