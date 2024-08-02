@@ -69,7 +69,8 @@ Defines the 'personView' function to handle different HTTP methods for CRUD oper
   from .views import personView
   
   urlpatterns = [
-      path('person/', personView, name='person-view'),
+      path('index/', view=indexView, name='index'),
+      path('person/', view=personView, name='person'),
   ]
   ```
 
