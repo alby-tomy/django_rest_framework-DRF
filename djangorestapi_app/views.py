@@ -28,7 +28,7 @@ def indexView(request):
 @api_view(["GET","POST","PUT","PATCH","DELETE"]) 
 def personView(request):
     if request.method == "GET":
-        queryset = Person.objects.all()
+        queryset = Person.objects.filter(team__isnull=False)
         serializer = PersonSerializer(queryset, many=True)
         return Response(serializer.data)
     
