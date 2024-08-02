@@ -49,9 +49,21 @@ Defines the `PersonSerializer` with custom validation.
 ### 'views.py'
 Defines the 'personView' function to handle different HTTP methods for CRUD operations.
 
-## URL Configuration
-### 'urls.py'
-Add the view to url
+## Create api directory and  Configure URL
+### create 'api' directory in base directory
+- add `urls.py`
+- add `__init__.py`
+- connect api.url with djangorestapi.url
+  ```python
+  from django.contrib import admin
+    from django.urls import path, include
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('api/',include('api.urls')),
+    ]
+```
+Add the view to app/urls.py
 ```python
 from django.urls import path
 from .views import personView
@@ -60,6 +72,7 @@ urlpatterns = [
     path('person/', personView, name='person-view'),
 ]
 ```
+
 
 ## Testing the API
 You can test the API using tools like Postman or Curl
