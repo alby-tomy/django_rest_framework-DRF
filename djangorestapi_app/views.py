@@ -6,8 +6,10 @@ from rest_framework.decorators import api_view
 from .models import Person
 from .serializers import PersonSerializer
 from rest_framework.views import APIView
+from rest_framework import viewsets
 
 
+# using class to do crud operation
 class ClassPerson(APIView):
     def get(self, request):
         queryset = Person.objects.filter(team__isnull=False)
@@ -20,7 +22,11 @@ class ClassPerson(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
+    
+    
+    
 
+# using function to do crud operation
 
 @api_view(["GET","POST"])
 def indexView(request):
@@ -77,3 +83,13 @@ def personView(request):
         del_query = Person.objects.get(id=data['id'])
         del_query.delete()
         return Response({'This Person data is deleted'})
+    
+    
+# viewSet method to do CRUD operation builtin operation done by django itself
+class personViewSet(viewsets.ModelViewSet):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
+    
+    
+    def list(self, request):
+        search = request.GET.get("search")

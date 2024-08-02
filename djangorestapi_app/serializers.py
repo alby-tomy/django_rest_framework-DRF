@@ -8,7 +8,7 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = ['team_name']
 
 class PersonSerializer(serializers.ModelSerializer):
-    team = TeamSerializer()
+    team = TeamSerializer(read_only = True)
     extra_field = serializers.SerializerMethodField()
     
     def get_extra_field(self, obj):
