@@ -42,7 +42,7 @@ python manage.py runserver
 #### 'models.py'
 Defines the `Person` model with fields: `name`, `email`, `age`, and `password`.
 
-### 'serializers.py`
+### 'serializers.py'
 Defines the `PersonSerializer` with custom validation.
 
 ## Views
