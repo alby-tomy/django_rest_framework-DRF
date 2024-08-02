@@ -5,7 +5,21 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Person
 from .serializers import PersonSerializer
+from rest_framework.views import APIView
 
+
+class ClassPerson(APIView):
+    def get(self, request):
+        queryset = Person.objects.filter(team__isnull=False)
+        serializer = PersonSerializer(queryset, many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        data = request.data
+        serializer = PersonSerializer(data = data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
 
 
 @api_view(["GET","POST"])
