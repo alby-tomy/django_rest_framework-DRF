@@ -93,3 +93,13 @@ class personViewSet(viewsets.ModelViewSet):
     
     def list(self, request):
         search = request.GET.get("search")
+        queryset = self.queryset
+        
+        if search:
+            queryset = queryset.filter(name__startswith = search)
+            
+        if queryset.exists():
+            serilizer = PersonSerializer(queryset, many = True)
+            return Response({'status' : 200, 'data': serilizer.data})
+        else:
+            return Response({'status':404, 'data':'No user found'})
