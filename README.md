@@ -10,8 +10,8 @@ This project demonstrates how to perform CRUD (Create, Read, Update, Delete) ope
 
 ### 1. Clone the Repository
 ```bash
-git clone <https://github.com/alby-tomy/django_rest_framework-DRF-.git>
-cd <djangorestapi_pr>
+git clone https://github.com/alby-tomy/django_rest_framework-DRF-.git
+cd djangorestapi_pr
 ```
 
 ### 2.Create Virtual Environment and Activate it
