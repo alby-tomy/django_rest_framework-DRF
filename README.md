@@ -81,21 +81,21 @@ You can test the API using tools like Postman or Curl
 ### Example Curl Commands:
 - GET request to retrive all persons:
   ```bash
-  curl -X GET http://127.0.0.1:8000/person/
+  curl -X GET http://127.0.0.1:8000/api/person/
   ```
 - POST request to create a new person:
   ```bash
-  curl -X POST http://127.0.0.1:8000/person/ -d '{"name": "John", "email": "john@example.com", "age": 25, "password": "John@123"}' -H "Content-Type: application/json"
+  curl -X POST http://127.0.0.1:8000/api/person/ -d '{"name": "John", "email": "john@example.com", "age": 25, "password": "John@123"}' -H "Content-Type: application/json"
   ```
 - PUT request to update a person:
   ```bash
-  curl -X PUT http://127.0.0.1:8000/person/ -d '{"id": 1, "name": "John", "email": "john@example.com", "age": 26, "password": "John@123"}' -H "Content-Type: application/json"
+  curl -X PUT http://127.0.0.1:8000/api/person/ -d '{"id": 1, "name": "John", "email": "john@example.com", "age": 26, "password": "John@123"}' -H "Content-Type: application/json"
   ```
 - PATCH request to partially update a person:
   ```bash
-  curl -X PATCH http://127.0.0.1:8000/person/ -d '{"id": 1, "age": 27}' -H "Content-Type: application/json"
+  curl -X PATCH http://127.0.0.1:8000/api/person/ -d '{"id": 1, "age": 27}' -H "Content-Type: application/json"
   ```
 - DELETE request to delete a person:
   ```bash
-  curl -X DELETE http://127.0.0.1:8000/person/ -d '{"id": 1}' -H "Content-Type: application/json"
+  curl -X DELETE http://127.0.0.1:8000/api/person/ -d '{"id": 1}' -H "Content-Type: application/json"
   ```
